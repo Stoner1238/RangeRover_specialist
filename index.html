@@ -118,6 +118,18 @@
     </div>
   </section>
 
+
+  script>
+    // Loader script restored
+    window.addEventListener("load", ()=>{
+      setTimeout(()=>{
+        document.getElementById("loader").style.display = "none";
+      },4000); // loader disappears after 5 seconds
+    });
+  </script>
+
+  <script src="script.js"></script>
+
   <!-- Footer -->
   <footer style="text-align:center; padding:20px; background:#f1f1f1;">
     <p style="color:#007bff;">&copy; 2025 Range Rover Specialist Lagos. All rights reserved.</p>
@@ -132,3 +144,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
