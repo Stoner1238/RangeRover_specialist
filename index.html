@@ -7,8 +7,12 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
 </head>
 <body>
+    <div id="loader"><i class="fas fa-car"></i></div>
+
 
   <!-- ===== Navigation Bar ===== -->
   <nav>
@@ -20,20 +24,23 @@
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
 
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why">Why Choose Us</a></li>
+      <li><a href="#about" class="active">ABOUT</a></li>
+      <li><a href="#services" class="active">SERVICES</a></li>
+      <li><a href="#why" class="active">Why Choose Us</a></li>
       <li><a href="#Contact" class="active">CONTACT</a></li>
-
     </ul>
   </nav>
+
+  
+
 
   <!-- ===== Sections (we'll fill them after) ===== -->
   <!-- ===== Hero Section ===== -->
 <section id="home" class="hero">
   <h1>Expert Range Rover Technician in Lagos</h1>
   <p>Dealership-level diagnostics, module programming, key coding and EPB resets.</p>
-  <a href="#contact" class="btn">Contact via WhatsApp</a>
+  <a href="https://wa.me/2347082798562?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment" class="btn">Book Appointment</a>
+
 </section>
 
   <!-- ===== About Section ===== -->
@@ -59,15 +66,14 @@
 </section>
 
 
-
-  <!-- ===== Why Choose Us Section ===== -->
+ <!-- ===== Why Choose Us Section ===== -->
 <section id="why">
   <h2>Why Choose Us</h2>
   <ul>
-    <li>Dealership-level service</li>
-    <li>Faster turnaround time</li>
-    <li>Better value and affordable pricing</li>
-    <li>Trusted by Range Rover owners across Lagos</li>
+    <li><i class="fas fa-shield-alt"></i>Dealership-level service</li>
+    <li><i class="fas fa-stopwatch"></i>Faster turnaround time</li>
+    <li><i class="fas fa-money-bill-wave"></i>Better value and affordable pricing</li>
+    <li><i class="fas fa-check-circle"></i>Trusted by Range Rover owners across Lagos</li>
   </ul>
 </section>
 
@@ -85,15 +91,15 @@
 
 <!-- ===== Contact Section ===== -->
 <section id="contact" class="fade-section">
-  <h2>Contact Us</h2>
+  <h2 style="color: #007bff;">Contact Us</h2>
 
   <div class="contact-container">
     
     <div class="contact-info">
-      <p><strong>Phone:</strong> <a href="tel:+234XXXXXXXXXX">+234XXXXXXXXXX</a></p>
-      <p><strong>Email:</strong> <a href="mailto:example@example.com">example@example.com</a></p>
-      <p><strong>Address:</strong> 123 Range Rover Street, Lagos, Nigeria</p>
-      <a href="https://wa.me/234XXXXXXXXXX" class="btn">Chat on WhatsApp</a>
+      <p style="color: #007bff;"><strong>Phone:</strong> <a href="tel:+2347082798562" style="color: #007bff;">+2347082798562</a></p>
+      <p style="color: #007bff;"><strong>Email:</strong> <a href="mailto:talk2issasodiq@gmail.com" style="color: #007bff;">talk2issasodiq@gmail.com</a></p>
+      <p style="color: #007bff;"><strong>Address:</strong> 312 Old Ojo Rd, Oluti, Lagos 102102, Lagos Nigeria.</p>
+      <a href="https://wa.me/2349079851714" class="btn">Chat on WhatsApp</a>
     </div>
 
     <div class="map-container">
@@ -112,11 +118,47 @@
 </section>
 
 
+<!-- Appointment Modal -->
+<div id="bookModal" class="modal">
+  <div class="modal-content">
+    <h3>Book Appointment</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="text" placeholder="Vehicle Model (e.g Range Rover Evoque)" required>
+      <input type="date" required>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const bookBtn = document.getElementById('bookBtn');
+  const bookModal = document.getElementById('bookModal');
+
+  bookBtn.onclick = () => {
+    bookModal.style.display = 'flex';
+  }
+
+  bookModal.onclick = (e) => {
+    if (e.target === bookModal) {
+      bookModal.style.display = 'none';
+    }
+  }
+</script>
 
 
 <div class="lightbox" id="lightbox">
   <img src="" alt="Expanded Image" />
 </div>
+
+<script>
+  // show loader for 1 minute (60000ms)
+  window.addEventListener("load", ()=>{
+    setTimeout(()=>{
+      document.getElementById("loader").style.display = "none";
+    },5000);
+  });
+</script>
 
 
 <!-- Back to Top Button -->
@@ -124,14 +166,26 @@
 
   <script src="script.js"></script>
 
+  <!-- Toggle Button -->
+<button id="themeToggle" class="theme-toggle">🌓</button>
+
+<script>
+  // Theme Toggle
+  const themeBtn = document.getElementById('themeToggle');
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+  });
+</script>
+
+
   <!-- Footer -->
 <footer>
   <p>&copy; 2025 Range Rover Specialist Lagos. All rights reserved.</p>
   <div class="social-links">
-    <a href="#"><i class="fab fa-whatsapp"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-  </div>
+    <a href="mailto:talk2issasodiq@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://instagram.com/range.roverspecialist?igsh=MXYzM29uZnR1NnFm&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
 </footer>
 
 </body>
