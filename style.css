@@ -109,6 +109,8 @@ html {
 
 .gallery-grid img {
   width: 100%;
+  height: 200px;           /* equal height for all images */
+  object-fit: cover;       /* crop image nicely without stretch */
   border-radius: 10px;
   transition: transform 0.3s;
 }
@@ -385,20 +387,16 @@ footer p {
 .contact-info p {
   margin-bottom: 15px;
   font-size: 16px;
+  color: #cccccc; /* softer light grey for better contrast */
 }
 
 .contact-info a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.contact-info a {
-  color: #edf1f5;
+  color: #80bfff; /* light blue for better visibility */
   text-decoration: none;
 }
 
 .contact-info a:hover {
-  color: #0056b3;
+  color: #3399ff; /* darker blue on hover */
 }
 
 .map-container {
@@ -446,24 +444,31 @@ footer p {
   z-index: 2000;
 }
 
-/* Light Theme Overrides */
-body.light { background:#fff; color:#000; }
-body.light nav { background:rgba(255,255,255,0.4); }
-body.light #services ul li { background:rgba(255,255,255,0.4); }
-body.light .contact-info { background:rgba(255,255,255,0.4); }
-body.light .btn { color:#fff; background:#007bff; }
-.book-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #007bff;
-  color: #fff;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 2000;
+/* Light Theme Overrides  */
+body.light  { background:#fff; color:#000; }
+
+body.light nav            { background:rgba(255,255,255,0.4); }
+body.light .btn           { color:#fff; background:#007bff; }
+
+body.light #about,
+body.light #services,
+body.light #why,
+body.light #gallery,
+body.light #contact {
+  background:#f5f5f5;         /* light background for sections */
 }
+
+body.light #services ul li,
+body.light #why ul li,
+body.light .contact-info {
+  background:rgba(0,0,0,0.05); /* light glassy cards */
+}
+
+body.light #services ul li i,
+body.light #why ul li i {
+  color:#007bff;   /* keep the blue icon */
+}
+
 
 /* Modal styling */
 .modal {
@@ -517,34 +522,49 @@ body.light .btn { color:#fff; background:#007bff; }
   50% {transform: translateX(0);}
   100%{transform: translateX(60px);}
 }
-/* ----- Why Choose Us (Styled Cards + Icons) ----- */
-#why ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-}
 
 #why ul li {
-  background: rgba(17,17,17,0.3);
+  background: rgba(255,255,255,0.1);  /* lighter background */
   backdrop-filter: blur(8px);
   padding: 25px;
   border-radius: 12px;
-  text-align: center;
   border: 1px solid rgba(255,255,255,0.15);
   font-size: 15px;
+  display: flex;                     /* align icon + text inline */
+  align-items: center;
+  gap: 12px;                         /* spacing between icon and text */
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #why ul li i {
   font-size: 34px;
   color: #007bff;
-  margin-bottom: 12px;
+  margin-bottom: 0;                  /* remove bottom margin */
 }
 
-#why ul li:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+/* About Section Layout */
+.about-container{
+  display:flex;
+  gap:40px;
+  margin: 0 40px;
+  align-items:center;
 }
+.about-container img{
+  width:100%;
+  border-radius:12px;
+  object-fit:cover;
+}
+@media(max-width:768px){
+  .about-container{
+    flex-direction:column;
+  }
+}
+/* Alternate section backgrounds (lighter contrast) */
+#services         { background:#1a1a1a; }
+#gallery          { background:#1a1a1a; }
+#about, #why, #contact { background:#111; }
+
+/* Padding for section offset below navbar */
+section { padding-top:100px; }
+
 
