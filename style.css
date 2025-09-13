@@ -108,16 +108,18 @@ html {
 }
 
 .gallery-grid img {
-  width: 100%;
-  height: 200px;           /* equal height for all images */
-  object-fit: cover;       /* crop image nicely without stretch */
-  border-radius: 10px;
-  transition: transform 0.3s;
+  width: 200%;
+  max-height: 400px;       /* make them taller */
+  object-fit: cover;       /* crops nicely without stretching */
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(8, 97, 192, 0.7); /* blurred blue glow below */
 }
+
 #services ul li i {
   margin-right: 10px;
   color: #007bff;
@@ -566,5 +568,14 @@ body.light #why ul li i {
 
 /* Padding for section offset below navbar */
 section { padding-top:100px; }
+#loader {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+#loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
 
 
